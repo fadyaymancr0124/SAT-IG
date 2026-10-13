@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#1e293b">
+  <meta name="description" content="تطبيق ويب عصري لتحديد أقرب فروع الشركة وحساب المسافات التلقائية مع الربط المباشر بخرائط جوجل.">
+  <title>فروعنا | البحث الذكي عن أقرب فرع</title>
+
+  <!-- خطوط جوجل العربية (Cairo & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- أيقونات Font Awesome الحديثة -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- مكتبة Leaflet للخرائط التفاعلية -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- ملف التنسيقات -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي الفاخر -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="brand">
+        <a href="#" class="brand-logo-link" title="SAT&IG BOOKSTORE">
+          <div class="brand-logo-card">
+            <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE" class="site-brand-logo">
+          </div>
+        </a>
+        <div class="brand-meta">
+          <span class="brand-title-en">SAT&amp;IG BOOKSTORE</span>
+          <span class="brand-subtitle-ar">شبكة الفروع المعتمدة في مصر</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <!-- زر تغيير الثيم ليلي / نهاري -->
+        <button id="themeToggleBtn" class="icon-btn" title="تغيير المظهر" aria-label="تغيير المظهر">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- زر تحديد موقعي -->
+        <button id="detectLocationBtn" class="btn btn-primary locate-header-btn">
+          <i class="fa-solid fa-crosshairs"></i>
+          <span>تحديد موقعي</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- القسم الترويجي والتحكم بالموقع -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="hero-brand-tag">
+            <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE" class="hero-brand-logo">
+            <span class="hero-tag-text">الموزع المعتمد لمناهج وكتب SAT &amp; IG</span>
+          </div>
+          <div class="status-indicator" id="locationStatusBadge">
+            <span class="status-dot pulse"></span>
+            <span id="locationStatusText">جاري فحص وتحديد موقعك الجغرافي...</span>
+          </div>
+          <h2>اكتشف شبكة فروعنا الأقرب إليك</h2>
+          <p>
+            نقوم تلقائياً بحساب المسافة الدقيقة بينك وبين كل فرع، وترتيب الفروع ليظهر 
+            <strong>الفرع الأقرب في البداية</strong> لراحتك وسرعة وصولك.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- أدوات التصفية والبحث والتبديل بين القائمة والخريطة -->
+  <section class="controls-section">
+    <div class="container">
+      <div class="controls-wrapper">
+        <!-- حقل البحث السريع -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" placeholder="ابحث باسم الفرع، المنطقة أو الشارع..." autocomplete="off">
+          <button id="clearSearchBtn" class="clear-btn hidden" aria-label="مسح البحث">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- أزرار التصفية وطريقة العرض -->
+        <div class="filter-actions">
+          <div class="filter-tabs" id="filterTabs">
+            <button class="tab-btn active" data-filter="all">جميع الفروع (<span id="totalBranchesCount">0</span>)</button>
+            <button class="tab-btn" data-filter="open">مفتوح الآن</button>
+          </div>
+
+          <div class="view-toggles">
+            <button id="viewListBtn" class="view-btn active" title="عرض البطاقات">
+              <i class="fa-solid fa-table-cells-large"></i>
+              <span>البطاقات</span>
+            </button>
+            <button id="viewMapBtn" class="view-btn" title="عرض الخريطة التفاعلية">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>الخريطة</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- إشعار عند عدم تفعيل الـ GPS مع زر تفعيل -->
+      <div id="permissionNotice" class="permission-alert hidden">
+        <div class="alert-content">
+          <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+          <div>
+            <strong>لم يتم تحديد موقعك بدقة حتى الآن</strong>
+            <p>فعّل صلاحية الموقع لمعرفة الفرع الأقرب إليك تلقائياً والمسافة الفعلية بالكيلومتر.</p>
+          </div>
+        </div>
+        <button id="requestPermissionBtn" class="btn btn-sm btn-white">
+          <i class="fa-solid fa-location-arrow"></i>
+          تفعيل الموقع الآن
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- المحتوى الرئيسي: البطاقات والخريطة -->
+  <main class="main-content">
+    <div class="container">
+      <div class="layout-grid" id="mainLayout">
+
+        <!-- حاوية بطاقات الفروع -->
+        <section class="cards-column" id="cardsSection">
+          <div class="section-subhead">
+            <h3 id="branchesHeaderTitle">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>الفروع مرتبة حسب الأقرب إليك</span>
+            </h3>
+            <span class="results-badge" id="resultsCountBadge">عرض 5 فروع</span>
+          </div>
+
+          <div class="branches-grid" id="branchesContainer">
+            <!-- سيتم توليد بطاقات الفروع هنا برمجياً بواسطة JavaScript -->
+          </div>
+
+          <!-- بطاقة رسالة عند عدم وجود نتائج بحث -->
+          <div class="empty-state hidden" id="emptyState">
+            <div class="empty-icon">
+              <i class="fa-solid fa-store-slash"></i>
+            </div>
+            <h4>لا توجد فروع مطابقة لبحثك</h4>
+            <p>يرجى تجربة كلمات بحث أخرى أو إزالة التصفية لمشاهدة جميع الفروع.</p>
+            <button id="resetSearchBtn" class="btn btn-secondary">إعادة ضبط البحث</button>
+          </div>
+        </section>
+
+        <!-- حاوية الخريطة التفاعلية -->
+        <section class="map-column" id="mapSection">
+          <div class="map-card-wrapper">
+            <div class="map-header">
+              <div class="map-header-title">
+                <div class="map-live-badge">
+                  <span class="pulse-ring"></span>
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div>
+                  <span class="map-title-main">خريطة الفروع المباشرة</span>
+                  <span class="map-title-sub">تحديث تلقائي</span>
+                </div>
+              </div>
+              <button id="recenterMapBtn" class="map-action-btn" title="إعادة ضبط وتوسيط الخريطة">
+                <i class="fa-solid fa-expand"></i>
+                <span>توسيط الكل</span>
+              </button>
+            </div>
+            <div id="leafletMap" class="map-display"></div>
+            <div class="map-legend">
+              <div class="legend-item">
+                <span class="legend-pin user-pin"></span>
+                <span>موقعك الحالي</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-pin nearest-pin"></span>
+                <span>الأقرب إليك</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-pin branch-pin"></span>
+                <span>بقية الفروع</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- التذييل العصري (Footer) -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <div class="footer-info">
+        <div class="footer-logo">
+          <div class="brand-logo-card" style="padding: 4px 10px;">
+            <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE" class="site-brand-logo" style="height: 34px;">
+          </div>
+        </div>
+        <p>تطبيق ذكي وتفاعلي لتحديد أقرب فرع بنقرة زر واحدة عبر خوارزميات حساب المسافات الجغرافية.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 جميع الحقوق محفوظة لشركتنا - تجربة مستخدم عصرية وسريعة</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- نظام رسائل التنبيه العائمة (Toasts) -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ملف الجافاسكريبت الرئيسي -->
+  <script src="app.js"></script>
+</body>
+</html>
