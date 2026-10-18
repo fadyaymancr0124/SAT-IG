@@ -3,243 +3,1291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#1e293b">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="theme-color" content="#070b14">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="description" content="تطبيق ويب عصري لتحديد أقرب فروع الشركة وحساب المسافات التلقائية مع الربط المباشر بخرائط جوجل.">
-  <title>فروعنا | البحث الذكي عن أقرب فرع</title>
+  <meta name="description" content="تطبيق فروع SAT&IG BOOKSTORE الذكي في مصر - تحديد أقرب فرع والملاحة والتواصل المباشر.">
+  <title>SAT&amp;IG BOOKSTORE | فروعنا المعتمدة في مصر</title>
 
-  <!-- خطوط جوجل العربية (Cairo & Plus Jakarta Sans) -->
+  <!-- خط Cairo الفاخر من Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- أيقونات Font Awesome الحديثة -->
+  <!-- مكتبة الأيقونات Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- مكتبة Leaflet للخرائط التفاعلية -->
+  <!-- مكتبة Leaflet للخرائط -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <!-- ملف التنسيقات -->
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <!-- ملف التنسيقات الخارجي عالي الأداء مع كسر الكاش -->
+  <link rel="stylesheet" href="styles.css?v=6.0">
 
-  <!-- شريط التنقل العلوي الفاخر -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <div class="brand">
-        <a href="#" class="brand-logo-link" title="SAT&IG BOOKSTORE">
-          <div class="brand-logo-card">
-            <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE" class="site-brand-logo">
-          </div>
-        </a>
-        <div class="brand-meta">
-          <span class="brand-title-en">SAT&amp;IG BOOKSTORE</span>
-          <span class="brand-subtitle-ar">شبكة الفروع المعتمدة في مصر</span>
+  <!-- التنسيقات السريعة المدمجة لضمان العمل الفوري والتوافق 10/10 على جميع الهواتف -->
+  <style>
+    :root {
+      --app-bg: #070b14;
+      --app-surface: #0e1424;
+      --app-surface-card: #131b30;
+      --app-surface-hover: #18233d;
+      --app-glass: rgba(14, 20, 36, 0.92);
+      --app-glass-dock: rgba(14, 20, 36, 0.94);
+
+      --text-1: #f8fafc;
+      --text-2: #cbd5e1;
+      --text-3: #94a3b8;
+
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-glow: rgba(37, 99, 235, 0.28);
+      --primary-gradient: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.28);
+      --gold-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+
+      --whatsapp: #10b981;
+      --whatsapp-hover: #059669;
+      --whatsapp-glow: rgba(16, 185, 129, 0.28);
+      --whatsapp-gradient: linear-gradient(135deg, #10b981, #059669);
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --border-focus: #3b82f6;
+
+      --radius-xs: 6px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
+
+      --font: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.light-theme {
+      --app-bg: #f8fafc;
+      --app-surface: #ffffff;
+      --app-surface-card: #ffffff;
+      --app-surface-hover: #f1f5f9;
+      --app-glass: rgba(255, 255, 255, 0.94);
+      --app-glass-dock: rgba(255, 255, 255, 0.96);
+
+      --text-1: #0f172a;
+      --text-2: #334155;
+      --text-3: #64748b;
+
+      --border-subtle: #e2e8f0;
+      --border-card: #e2e8f0;
+      --border-focus: #2563eb;
+
+      --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      height: 100dvh;
+      font-family: var(--font);
+      background-color: var(--app-bg);
+      color: var(--text-1);
+      direction: rtl;
+      text-align: right;
+      overflow: hidden;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    button, a, input {
+      font-family: inherit;
+      border: none;
+      background: none;
+      outline: none;
+      touch-action: manipulation;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; }
+
+    .app-root {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      height: 100dvh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* الهيدر العلوي المنسق */
+    .app-header {
+      background: var(--app-glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transform: translateZ(0);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.25rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      height: 62px;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .brand-logo-glow {
+      background: #090e1a;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 3px 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-glow img {
+      height: 27px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-tagline-wrap {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-subtitle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .brand-caption {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .action-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-full);
+      background: var(--app-surface-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      transition: transform 0.15s var(--ease-smooth), color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .action-icon-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .action-icon-btn:active {
+      transform: scale(0.92);
+    }
+
+    .locate-pulse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: var(--primary-gradient);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      box-shadow: 0 3px 12px var(--primary-glow);
+      position: relative;
+      transition: transform 0.15s var(--ease-smooth), box-shadow 0.15s ease;
+    }
+
+    .locate-pulse-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .locate-pulse-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* جسم التطبيق */
+    .app-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(380px, 440px) 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .branches-panel {
+      display: flex;
+      flex-direction: column;
+      background: var(--app-surface);
+      border-left: 1px solid var(--border-subtle);
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      z-index: 20;
+    }
+
+    .panel-top-controls {
+      padding: 0.75rem 1rem 0.6rem;
+      background: var(--app-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .gps-status-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      background: var(--app-surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      padding: 0.3rem 0.85rem;
+      height: 36px;
+    }
+
+    .status-beacon {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--text-2);
+      min-width: 0;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .status-beacon span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .beacon-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .beacon-dot::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 50%;
+      border: 1.5px solid var(--primary);
+      animation: beaconPulse 2s infinite ease-out;
+      transform: translateZ(0);
+    }
+
+    .beacon-dot.success {
+      background: var(--whatsapp);
+    }
+
+    .beacon-dot.success::after {
+      border-color: var(--whatsapp);
+    }
+
+    @keyframes beaconPulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    .refresh-gps-action {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.74rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 2px 7px;
+      border-radius: var(--radius-xs);
+      transition: background-color 0.15s ease;
+    }
+
+    .refresh-gps-action:hover {
+      background: rgba(37, 99, 235, 0.12);
+    }
+
+    .refresh-gps-action:active {
+      transform: scale(0.94);
+    }
+
+    .app-search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-magnifier {
+      position: absolute;
+      right: 0.95rem;
+      color: var(--text-3);
+      font-size: 0.92rem;
+      pointer-events: none;
+    }
+
+    .app-search-box input {
+      width: 100%;
+      height: 42px;
+      background: var(--app-surface-card);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 0 2.5rem 0 2.2rem;
+      color: var(--text-1);
+      font-size: 0.9rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .app-search-box input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .clear-search-action {
+      position: absolute;
+      left: 0.65rem;
+      color: var(--text-3);
+      font-size: 0.9rem;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .clear-search-action:hover {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .filter-chips-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 2px 2px 4px 2px;
+      scroll-padding: 0.5rem;
+    }
+
+    .filter-chips-row::-webkit-scrollbar { display: none; }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--app-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-2);
+      white-space: nowrap;
+      flex-shrink: 0;
+      height: 34px;
+      transition: transform 0.15s var(--ease-smooth), background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .filter-chip:hover {
+      background: var(--app-surface-hover);
+      color: var(--text-1);
+    }
+
+    .filter-chip:active {
+      transform: scale(0.95);
+    }
+
+    .filter-chip.active {
+      background: var(--primary-gradient);
+      color: #fff !important;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px var(--primary-glow);
+    }
+
+    .filter-chip.active i { color: #fff !important; }
+
+    /* تغذية البطاقات */
+    .branches-scroll-feed {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.85rem 1rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+    }
+
+    .branches-scroll-feed::-webkit-scrollbar { width: 5px; }
+    .branches-scroll-feed::-webkit-scrollbar-track { background: transparent; }
+    .branches-scroll-feed::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 9999px;
+    }
+
+    .feed-meta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-3);
+      padding: 0 0.25rem;
+    }
+
+    .feed-count-tag {
+      background: var(--app-surface-card);
+      border: 1px solid var(--border-subtle);
+      padding: 1px 8px;
+      border-radius: var(--radius-full);
+      color: var(--text-2);
+      font-size: 0.74rem;
+    }
+
+    /* بطاقة الفرع المتقنة */
+    .next-branch-card {
+      background: var(--app-surface-card);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.15rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      cursor: pointer;
+      contain: content;
+      transform: translateZ(0);
+      transition: transform 0.18s var(--ease-spring), border-color 0.15s ease, box-shadow 0.18s ease;
+      animation: cardEntrance 0.32s var(--ease-spring) both;
+    }
+
+    @keyframes cardEntrance {
+      from { opacity: 0; transform: translate3d(0, 16px, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    .next-branch-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .next-branch-card:active {
+      transform: scale(0.988);
+    }
+
+    .next-branch-card.is-nearest {
+      border: 2px solid var(--gold);
+      box-shadow: 0 6px 20px var(--gold-glow);
+      background: linear-gradient(180deg, var(--app-surface-card) 0%, rgba(245, 158, 11, 0.05) 100%);
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .branch-main-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .branch-badges-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .badge-nearest-star {
+      background: var(--gold-gradient);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      box-shadow: 0 2px 6px var(--gold-glow);
+    }
+
+    .badge-area-pill {
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text-2);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge-live-open {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--whatsapp);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .card-branch-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--text-1);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .card-distance-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      color: var(--primary);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .card-distance-badge.gold-distance {
+      background: var(--gold-gradient);
+      color: #fff;
+      border: none;
+      box-shadow: 0 2px 8px var(--gold-glow);
+    }
+
+    .card-meta-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.84rem;
+      color: var(--text-2);
+    }
+
+    .meta-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .meta-line i {
+      color: var(--primary);
+      font-size: 0.88rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .phone-clickable-link {
+      color: var(--text-1);
+      font-weight: 800;
+      display: inline-block;
+      direction: ltr;
+      unicode-bidi: embed;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .phone-clickable-link:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .card-features-chips {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+    }
+
+    .feature-chip-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-3);
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* أزرار الإجراءات المتناسقة 2x2 */
+    .card-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+
+    .btn-action-base {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 42px;
+      padding: 0.55rem 0.65rem;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: transform 0.15s var(--ease-smooth), box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-action-base:active {
+      transform: scale(0.95);
+    }
+
+    .btn-action-maps {
+      background: var(--primary-gradient);
+      color: #fff;
+      box-shadow: 0 2px 8px var(--primary-glow);
+    }
+
+    .btn-action-maps:hover {
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .btn-action-whatsapp {
+      background: var(--whatsapp-gradient);
+      color: #fff;
+      box-shadow: 0 2px 8px var(--whatsapp-glow);
+    }
+
+    .btn-action-whatsapp:hover {
+      box-shadow: 0 4px 14px var(--whatsapp-glow);
+    }
+
+    .btn-action-call {
+      background: rgba(148, 163, 184, 0.1);
+      border: 1.5px solid var(--border-card);
+      color: var(--text-1);
+    }
+
+    .btn-action-call:hover {
+      background: var(--app-surface-hover);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-action-focus {
+      background: rgba(148, 163, 184, 0.1);
+      border: 1.5px solid var(--border-card);
+      color: var(--text-2);
+    }
+
+    .btn-action-focus:hover {
+      background: var(--app-surface-hover);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .empty-search-state {
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--app-surface-card);
+      border: 1.5px dashed var(--border-subtle);
+      border-radius: var(--radius-lg);
+    }
+
+    .empty-search-state i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .empty-search-state h3 {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .empty-search-state p {
+      font-size: 0.82rem;
+      color: var(--text-3);
+    }
+
+    /* لوحة الخريطة */
+    .map-panel {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      background: #090e1a;
+      overflow: hidden;
+    }
+
+    #leafletMap {
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    .map-fab-recenter {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 500;
+      background: var(--app-glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transform: translateZ(0);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 0.95rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-1);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.15s var(--ease-smooth), background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .map-fab-recenter:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .map-fab-recenter:active {
+      transform: scale(0.94);
+    }
+
+    .map-bottom-sheet {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 600;
+      background: var(--app-glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transform: translateZ(0);
+      border: 1.5px solid var(--border-focus);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-lg);
+      animation: sheetSlideUp 0.24s var(--ease-spring);
+    }
+
+    @keyframes sheetSlideUp {
+      from { opacity: 0; transform: translate3d(0, 24px, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    .close-sheet-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .close-sheet-btn:hover {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.12);
+    }
+
+    .mobile-tab-bar {
+      display: none;
+    }
+
+    .toast-container-box {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      pointer-events: none;
+    }
+
+    .app-toast {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: #0f172a;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1.15rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      animation: toastIn 0.22s var(--ease-spring);
+      max-width: 360px;
+      transform: translateZ(0);
+    }
+
+    .app-toast.success { border-right: 4px solid var(--whatsapp); }
+    .app-toast.info { border-right: 4px solid var(--primary); }
+    .app-toast.warning { border-right: 4px solid var(--gold); }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translate3d(0, 14px, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: var(--app-surface-card) !important;
+      color: var(--text-1) !important;
+      border-radius: var(--radius-md) !important;
+      border: 1.5px solid var(--border-card) !important;
+      box-shadow: var(--shadow-lg) !important;
+      padding: 0 !important;
+    }
+    .leaflet-popup-tip { background: var(--app-surface-card) !important; }
+
+    .custom-marker-pin {
+      width: 36px;
+      height: 36px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+    .custom-marker-pin i { transform: rotate(45deg); font-size: 1rem; color: #fff; }
+    .custom-marker-pin.gold-pin { background: var(--gold-gradient); border: 2px solid #fff; }
+    .custom-marker-pin.blue-pin { background: var(--primary-gradient); border: 2px solid #fff; }
+    .custom-marker-pin.user-pin { background: var(--whatsapp-gradient); border: 2px solid #fff; }
+
+    /* تجاوب الهواتف 10/10 */
+    @media (max-width: 1023px) {
+      .app-body {
+        grid-template-columns: 1fr;
+      }
+
+      body.mobile-mode-list .map-panel {
+        display: none !important;
+      }
+      body.mobile-mode-list .branches-panel {
+        display: flex !important;
+        width: 100%;
+        border-left: none;
+      }
+
+      body.mobile-mode-map .branches-panel {
+        display: none !important;
+      }
+      body.mobile-mode-map .map-panel {
+        display: block !important;
+        width: 100%;
+        height: 100%;
+      }
+
+      .mobile-tab-bar {
+        display: flex;
+        position: fixed;
+        bottom: max(0.85rem, env(safe-area-inset-bottom, 14px));
+        left: 50%;
+        transform: translateX(-50%) translateZ(0);
+        z-index: 1200;
+        background: var(--app-glass-dock);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1.5px solid var(--border-card);
+        border-radius: var(--radius-full);
+        padding: 4px;
+        gap: 5px;
+        box-shadow: var(--shadow-lg);
+        width: calc(100% - 1.5rem);
+        max-width: 360px;
+      }
+
+      .mobile-dock-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.6rem 0.45rem;
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--text-2);
+        min-height: 42px;
+        white-space: nowrap;
+        transition: transform 0.15s var(--ease-smooth), background-color 0.15s ease, color 0.15s ease;
+      }
+
+      .mobile-dock-btn:active {
+        transform: scale(0.95);
+      }
+
+      .mobile-dock-btn.active {
+        background: var(--primary-gradient);
+        color: #fff !important;
+        box-shadow: 0 2px 10px var(--primary-glow);
+      }
+
+      .mobile-dock-btn.accent-gps {
+        background: var(--whatsapp-gradient);
+        color: #fff;
+        box-shadow: 0 2px 10px var(--whatsapp-glow);
+      }
+
+      .branches-scroll-feed {
+        padding-bottom: calc(6.8rem + env(safe-area-inset-bottom, 20px));
+      }
+
+      .map-bottom-sheet {
+        bottom: calc(5.8rem + env(safe-area-inset-bottom, 16px));
+        left: 0.85rem;
+        right: 0.85rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-header {
+        padding: 0.5rem 0.75rem;
+        height: 58px;
+      }
+
+      .brand-logo-glow {
+        padding: 2px 6px;
+      }
+
+      .brand-logo-glow img {
+        height: 23px;
+        max-width: 105px;
+      }
+
+      .brand-caption {
+        display: none;
+      }
+
+      .brand-subtitle-badge {
+        font-size: 0.74rem;
+      }
+
+      .locate-pulse-btn span {
+        display: none;
+      }
+
+      .locate-pulse-btn {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      .action-icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.88rem;
+      }
+
+      .card-branch-title {
+        font-size: 0.98rem;
+      }
+
+      .btn-action-base {
+        font-size: 0.78rem;
+        padding: 0.5rem 0.4rem;
+        min-height: 40px;
+      }
+
+      .btn-action-base span {
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-subtitle-badge span {
+        display: none;
+      }
+
+      .filter-chip {
+        padding: 0.3rem 0.65rem;
+        font-size: 0.74rem;
+      }
+
+      .card-actions-grid {
+        gap: 0.35rem;
+      }
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body class="mobile-mode-list">
+
+  <div class="app-root">
+
+    <!-- شريط التطبيق العلوي -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-logo-glow">
+          <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE">
+        </div>
+        <div class="brand-tagline-wrap">
+          <span class="brand-subtitle-badge">
+            <i class="fa-solid fa-store"></i> <span>شبكة الفروع المعتمدة</span>
+          </span>
+          <span class="brand-caption">الموزع المعتمد لمناهج وكتب SAT &amp; IGCSE في مصر</span>
         </div>
       </div>
 
-      <div class="nav-actions">
-        <!-- زر تغيير الثيم ليلي / نهاري -->
-        <button id="themeToggleBtn" class="icon-btn" title="تغيير المظهر" aria-label="تغيير المظهر">
+      <div class="header-actions">
+        <!-- زر التبديل بين المظهرين -->
+        <button id="themeToggleBtn" class="action-icon-btn" title="تبديل المظهر" aria-label="تبديل المظهر">
           <i class="fa-solid fa-moon"></i>
         </button>
 
         <!-- زر تحديد موقعي -->
-        <button id="detectLocationBtn" class="btn btn-primary locate-header-btn">
-          <i class="fa-solid fa-crosshairs"></i>
+        <button id="locateMeBtn" class="locate-pulse-btn" title="تحديد موقعي الآن">
+          <i class="fa-solid fa-location-crosshairs"></i>
           <span>تحديد موقعي</span>
         </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- القسم الترويجي والتحكم بالموقع -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-card">
-        <div class="hero-content">
-          <div class="hero-brand-tag">
-            <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE" class="hero-brand-logo">
-            <span class="hero-tag-text">الموزع المعتمد لمناهج وكتب SAT &amp; IG</span>
+    <!-- جسم التطبيق المنقسم -->
+    <main class="app-body">
+
+      <!-- اللوحة الجانبية للفروع -->
+      <section class="branches-panel" id="branchesPanel">
+        
+        <!-- أدوات التحكم والبحث -->
+        <div class="panel-top-controls">
+          
+          <!-- شريط حالة الموقع التفاعلي -->
+          <div class="gps-status-pill">
+            <div class="status-beacon">
+              <span class="beacon-dot" id="gpsBeaconDot"></span>
+              <span id="gpsStatusText">جاري فحص وتحديد موقعك...</span>
+            </div>
+            <span class="refresh-gps-action" id="refreshGpsBtn">تحديث ↻</span>
           </div>
-          <div class="status-indicator" id="locationStatusBadge">
-            <span class="status-dot pulse"></span>
-            <span id="locationStatusText">جاري فحص وتحديد موقعك الجغرافي...</span>
+
+          <!-- حقل البحث السريع -->
+          <div class="app-search-box">
+            <i class="fa-solid fa-magnifying-glass search-magnifier"></i>
+            <input type="text" id="searchInput" placeholder="ابحث باسم الفرع، المنطقة أو الشارع..." autocomplete="off">
+            <button id="clearSearchBtn" class="clear-search-action hidden" aria-label="مسح البحث">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
-          <h2>اكتشف شبكة فروعنا الأقرب إليك</h2>
-          <p>
-            نقوم تلقائياً بحساب المسافة الدقيقة بينك وبين كل فرع، وترتيب الفروع ليظهر 
-            <strong>الفرع الأقرب في البداية</strong> لراحتك وسرعة وصولك.
-          </p>
+
+          <!-- شرائح التصفية والمحاكاة -->
+          <div class="filter-chips-row" id="filterChipsRow">
+            <button class="filter-chip active" data-filter="all">
+              <i class="fa-solid fa-store"></i>
+              <span>الكل (<span id="totalBranchesBadge">6</span>)</span>
+            </button>
+
+            <button class="filter-chip" data-filter="nearest">
+              <i class="fa-solid fa-crown" style="color: #f59e0b;"></i>
+              <span>الأقرب إليك</span>
+            </button>
+
+            <button class="filter-chip" data-filter="open">
+              <i class="fa-solid fa-door-open" style="color: #10b981;"></i>
+              <span>مفتوح الآن</span>
+            </button>
+
+            <!-- محاكاة سريعة -->
+            <button class="filter-chip" data-area="مدينة نصر" data-lat="30.0590" data-lng="31.3346">
+              <i class="fa-solid fa-map-pin"></i>
+              <span>مدينة نصر</span>
+            </button>
+
+            <button class="filter-chip" data-area="المعادي" data-lat="29.9824" data-lng="31.3106">
+              <i class="fa-solid fa-map-pin"></i>
+              <span>المعادي</span>
+            </button>
+
+            <button class="filter-chip" data-area="المهندسين" data-lat="30.0468" data-lng="31.2018">
+              <i class="fa-solid fa-map-pin"></i>
+              <span>المهندسين</span>
+            </button>
+
+            <button class="filter-chip" data-area="الهرم" data-lat="29.9971" data-lng="31.1619">
+              <i class="fa-solid fa-map-pin"></i>
+              <span>الهرم</span>
+            </button>
+
+            <button class="filter-chip" data-area="التجمع الخامس" data-lat="30.0074" data-lng="31.4284">
+              <i class="fa-solid fa-map-pin"></i>
+              <span>التجمع</span>
+            </button>
+
+            <button class="filter-chip" data-area="الشيخ زايد" data-lat="30.0531" data-lng="30.9833">
+              <i class="fa-solid fa-map-pin"></i>
+              <span>زايد</span>
+            </button>
+          </div>
+
         </div>
 
-      </div>
-    </div>
-  </section>
+        <!-- قائمة تغذية بطاقات الفروع -->
+        <div class="branches-scroll-feed" id="branchesFeed">
+          <div class="feed-meta-header">
+            <span>الفروع مرتبة حسب الأقرب إليك</span>
+            <span class="feed-count-tag" id="feedCountTag">6 فروع متاحة</span>
+          </div>
 
-  <!-- أدوات التصفية والبحث والتبديل بين القائمة والخريطة -->
-  <section class="controls-section">
-    <div class="container">
-      <div class="controls-wrapper">
-        <!-- حقل البحث السريع -->
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="text" id="searchInput" placeholder="ابحث باسم الفرع، المنطقة أو الشارع..." autocomplete="off">
-          <button id="clearSearchBtn" class="clear-btn hidden" aria-label="مسح البحث">
+          <div id="cardsListContainer" style="display: flex; flex-direction: column; gap: 0.95rem;">
+            <!-- يتم توليد البطاقات برمجياً عبر app.js -->
+          </div>
+
+          <!-- بطاقة عند عدم وجود نتائج -->
+          <div id="noResultsState" class="empty-search-state hidden">
+            <i class="fa-solid fa-store-slash"></i>
+            <h3>لا توجد فروع مطابقة لبحثك</h3>
+            <p>جرّب البحث باسم منطقة أخرى أو اضغط على الزر لإظهار جميع الفروع.</p>
+            <button id="resetSearchAction" class="btn-action-base btn-action-maps" style="padding: 0.55rem 1.4rem;">إظهار الكل</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- اللوحة التفاعلية للخريطة المباشرة -->
+      <section class="map-panel" id="mapPanel">
+        <!-- زر عائم لتوسيط جميع الفروع في الزاوية العلوية اليمنى دون تداخل -->
+        <button id="recenterMapBtn" class="map-fab-recenter">
+          <i class="fa-solid fa-expand"></i>
+          <span>توسيط الفروع</span>
+        </button>
+
+        <!-- عنصر الخريطة -->
+        <div id="leafletMap"></div>
+
+        <!-- بطاقة المعاينة العائمة السفلية عند النقر على أي ماركر -->
+        <div id="mapBottomSheet" class="map-bottom-sheet hidden">
+          <button class="close-sheet-btn" id="closeSheetBtn" aria-label="إغلاق">
             <i class="fa-solid fa-xmark"></i>
           </button>
-        </div>
-
-        <!-- أزرار التصفية وطريقة العرض -->
-        <div class="filter-actions">
-          <div class="filter-tabs" id="filterTabs">
-            <button class="tab-btn active" data-filter="all">جميع الفروع (<span id="totalBranchesCount">0</span>)</button>
-            <button class="tab-btn" data-filter="open">مفتوح الآن</button>
-          </div>
-
-          <div class="view-toggles">
-            <button id="viewListBtn" class="view-btn active" title="عرض البطاقات">
-              <i class="fa-solid fa-table-cells-large"></i>
-              <span>البطاقات</span>
-            </button>
-            <button id="viewMapBtn" class="view-btn" title="عرض الخريطة التفاعلية">
-              <i class="fa-solid fa-map-location-dot"></i>
-              <span>الخريطة</span>
-            </button>
+          <div id="bottomSheetContent">
+            <!-- محتوى ديناميكي من app.js -->
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- إشعار عند عدم تفعيل الـ GPS مع زر تفعيل -->
-      <div id="permissionNotice" class="permission-alert hidden">
-        <div class="alert-content">
-          <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
-          <div>
-            <strong>لم يتم تحديد موقعك بدقة حتى الآن</strong>
-            <p>فعّل صلاحية الموقع لمعرفة الفرع الأقرب إليك تلقائياً والمسافة الفعلية بالكيلومتر.</p>
-          </div>
-        </div>
-        <button id="requestPermissionBtn" class="btn btn-sm btn-white">
-          <i class="fa-solid fa-location-arrow"></i>
-          تفعيل الموقع الآن
-        </button>
-      </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- المحتوى الرئيسي: البطاقات والخريطة -->
-  <main class="main-content">
-    <div class="container">
-      <div class="layout-grid" id="mainLayout">
+    <!-- شريط التحكم السفلي العائم للهواتف المحمولة -->
+    <nav class="mobile-tab-bar" id="mobileTabBar">
+      <button id="dockBtnList" class="mobile-dock-btn active" type="button">
+        <i class="fa-solid fa-list-ul"></i>
+        <span>الفروع (<span id="dockBranchesCount">6</span>)</span>
+      </button>
 
-        <!-- حاوية بطاقات الفروع -->
-        <section class="cards-column" id="cardsSection">
-          <div class="section-subhead">
-            <h3 id="branchesHeaderTitle">
-              <i class="fa-solid fa-layer-group"></i>
-              <span>الفروع مرتبة حسب الأقرب إليك</span>
-            </h3>
-            <span class="results-badge" id="resultsCountBadge">عرض 5 فروع</span>
-          </div>
+      <button id="dockBtnMap" class="mobile-dock-btn" type="button">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>الخريطة المباشرة</span>
+      </button>
 
-          <div class="branches-grid" id="branchesContainer">
-            <!-- سيتم توليد بطاقات الفروع هنا برمجياً بواسطة JavaScript -->
-          </div>
+      <button id="dockBtnLocate" class="mobile-dock-btn accent-gps" type="button">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        <span>موقعي</span>
+      </button>
+    </nav>
 
-          <!-- بطاقة رسالة عند عدم وجود نتائج بحث -->
-          <div class="empty-state hidden" id="emptyState">
-            <div class="empty-icon">
-              <i class="fa-solid fa-store-slash"></i>
-            </div>
-            <h4>لا توجد فروع مطابقة لبحثك</h4>
-            <p>يرجى تجربة كلمات بحث أخرى أو إزالة التصفية لمشاهدة جميع الفروع.</p>
-            <button id="resetSearchBtn" class="btn btn-secondary">إعادة ضبط البحث</button>
-          </div>
-        </section>
+    <!-- إشعارات التوست -->
+    <div class="toast-container-box" id="toastBox"></div>
 
-        <!-- حاوية الخريطة التفاعلية -->
-        <section class="map-column" id="mapSection">
-          <div class="map-card-wrapper">
-            <div class="map-header">
-              <div class="map-header-title">
-                <div class="map-live-badge">
-                  <span class="pulse-ring"></span>
-                  <i class="fa-solid fa-map-location-dot"></i>
-                </div>
-                <div>
-                  <span class="map-title-main">خريطة الفروع المباشرة</span>
-                  <span class="map-title-sub">تحديث تلقائي</span>
-                </div>
-              </div>
-              <button id="recenterMapBtn" class="map-action-btn" title="إعادة ضبط وتوسيط الخريطة">
-                <i class="fa-solid fa-expand"></i>
-                <span>توسيط الكل</span>
-              </button>
-            </div>
-            <div id="leafletMap" class="map-display"></div>
-            <div class="map-legend">
-              <div class="legend-item">
-                <span class="legend-pin user-pin"></span>
-                <span>موقعك الحالي</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-pin nearest-pin"></span>
-                <span>الأقرب إليك</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-pin branch-pin"></span>
-                <span>بقية الفروع</span>
-              </div>
-            </div>
-          </div>
-        </section>
+  </div>
 
-      </div>
-    </div>
-  </main>
-
-  <!-- التذييل العصري (Footer) -->
-  <footer class="app-footer">
-    <div class="container footer-content">
-      <div class="footer-info">
-        <div class="footer-logo">
-          <div class="brand-logo-card" style="padding: 4px 10px;">
-            <img src="logo-transparent.png" alt="SAT&IG BOOKSTORE" class="site-brand-logo" style="height: 34px;">
-          </div>
-        </div>
-        <p>تطبيق ذكي وتفاعلي لتحديد أقرب فرع بنقرة زر واحدة عبر خوارزميات حساب المسافات الجغرافية.</p>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 جميع الحقوق محفوظة لشركتنا - تجربة مستخدم عصرية وسريعة</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- شريط التنقل والتحكم السفلي العائم لشاشات الموبايل (Mobile Floating Dock) -->
-  <nav class="mobile-bottom-bar" id="mobileBottomBar" aria-label="شريط التحكم السريع للهواتف">
-    <button id="mobViewListBtn" class="mob-bar-btn active" type="button" title="عرض قائمة الفروع">
-      <i class="fa-solid fa-layer-group"></i>
-      <span>القائمة (<span id="mobBranchesCount">6</span>)</span>
-    </button>
-    <button id="mobViewMapBtn" class="mob-bar-btn" type="button" title="عرض الخريطة المباشرة">
-      <i class="fa-solid fa-map-location-dot"></i>
-      <span>الخريطة</span>
-    </button>
-    <button id="mobLocateBtn" class="mob-bar-btn mob-locate-accent" type="button" title="تحديد موقعي">
-      <i class="fa-solid fa-crosshairs"></i>
-      <span>موقعي</span>
-    </button>
-  </nav>
-
-  <!-- نظام رسائل التنبيه العائمة (Toasts) -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <!-- ملف الجافاسكريبت الرئيسي -->
-  <script src="app.js"></script>
+  <!-- السكريبت المطور فائق السرعة -->
+  <script src="app.js?v=6.0"></script>
 </body>
 </html>

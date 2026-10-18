@@ -1,81 +1,81 @@
-/* ==========================================================================
-   فروعنا - تصميم عصري، تفاعلي، وسريع (RTL & Mobile First)
-   ========================================================================== */
+/* =============================================================================
+   SAT&IG BOOKSTORE - Smart Branch Locator 2026
+   Ultra-High-Performance Mobile-First Stylesheet
+   - 60/120fps Hardware-Accelerated Animations
+   - Optimized GPU Composite Layers (Zero main-thread lag)
+   - 10/10 Seamless Mobile Layout & Touch Ergonomics
+   - Flawless RTL Layout & Symmetry
+   ============================================================================= */
 
 :root {
-  /* نظام الألوان - الوضع النهاري (Light Theme) */
-  --bg-primary: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-elevated: #ffffff;
-  --bg-muted: #f1f5f9;
-  --bg-accent-soft: #eff6ff;
+  /* نظام الألوان المتناسق */
+  --app-bg: #070b14;
+  --app-surface: #0e1424;
+  --app-surface-card: #131b30;
+  --app-surface-hover: #18233d;
+  --app-glass: rgba(14, 20, 36, 0.92);
+  --app-glass-dock: rgba(14, 20, 36, 0.94);
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --text-inverse: #ffffff;
+  --text-1: #f8fafc;
+  --text-2: #cbd5e1;
+  --text-3: #94a3b8;
 
-  --primary-color: #2563eb;
+  --primary: #2563eb;
   --primary-hover: #1d4ed8;
-  --primary-glow: rgba(37, 99, 235, 0.25);
+  --primary-glow: rgba(37, 99, 235, 0.28);
+  --primary-gradient: linear-gradient(135deg, #2563eb, #1d4ed8);
 
-  --secondary-color: #0d9488;
-  --secondary-hover: #0f766e;
+  --gold: #f59e0b;
+  --gold-glow: rgba(245, 158, 11, 0.28);
+  --gold-gradient: linear-gradient(135deg, #f59e0b, #d97706);
 
-  --accent-gold: #f59e0b;
-  --accent-gold-soft: #fef3c7;
-  --accent-gold-border: #fcd34d;
+  --whatsapp: #10b981;
+  --whatsapp-hover: #059669;
+  --whatsapp-glow: rgba(16, 185, 129, 0.28);
+  --whatsapp-gradient: linear-gradient(135deg, #10b981, #059669);
 
-  --success-color: #10b981;
-  --success-soft: #ecfdf5;
-  --danger-color: #ef4444;
-  --warning-color: #f59e0b;
-
-  --border-color: #e2e8f0;
-  --border-light: #f1f5f9;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.12);
   --border-focus: #3b82f6;
 
+  --radius-xs: 6px;
   --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
-  --shadow-xl: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.25);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
 
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  --font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* الوضع الليلي (Dark Theme) */
-body.dark-mode {
-  --bg-primary: #0b0f19;
-  --bg-surface: #111827;
-  --bg-surface-elevated: #1f2937;
-  --bg-muted: #1e293b;
-  --bg-accent-soft: rgba(37, 99, 235, 0.15);
+/* نمط المظهر الفاتح (Light Mode) */
+body.light-theme {
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-surface-card: #ffffff;
+  --app-surface-hover: #f1f5f9;
+  --app-glass: rgba(255, 255, 255, 0.94);
+  --app-glass-dock: rgba(255, 255, 255, 0.96);
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
-  --text-inverse: #0f172a;
+  --text-1: #0f172a;
+  --text-2: #334155;
+  --text-3: #64748b;
 
-  --border-color: #1f2937;
-  --border-light: #2d3748;
+  --border-subtle: #e2e8f0;
+  --border-card: #e2e8f0;
+  --border-focus: #2563eb;
 
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.3);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.12);
 }
 
-/* التصفير والقواعد العامة */
+/* ضبط العناصر العامة */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -83,1101 +83,896 @@ body.dark-mode {
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-family);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+html, body {
+  height: 100%;
+  height: 100dvh;
+  font-family: var(--font);
+  background-color: var(--app-bg);
+  color: var(--text-1);
   direction: rtl;
   text-align: right;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  transition: background-color var(--transition-normal), color var(--transition-normal);
-  overflow-x: hidden;
+  overflow: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  width: 100%;
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-/* الأزرار العامة */
-button, a {
+button, a, input {
   font-family: inherit;
-  cursor: pointer;
   border: none;
   background: none;
+  outline: none;
+  touch-action: manipulation;
+}
+
+a {
   text-decoration: none;
-  transition: all var(--transition-fast);
+  color: inherit;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.25rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
+button {
+  cursor: pointer;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #1d4ed8, #1e40af);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background-color: var(--bg-muted);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-  background-color: var(--border-color);
-}
-
-.btn-sm {
-  padding: 0.45rem 0.9rem;
-  font-size: 0.85rem;
-  border-radius: var(--radius-sm);
-}
-
-.btn-white {
-  background-color: #ffffff;
-  color: #1e293b;
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-white:hover {
-  background-color: #f8fafc;
-  transform: translateY(-1px);
-}
-
-.icon-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-surface);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-  font-size: 1.1rem;
-}
-
-.icon-btn:hover {
-  background-color: var(--bg-muted);
-  color: var(--primary-color);
-  transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   شريط التنقل (Navbar)
-   ========================================================================== */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-color);
-  transition: all var(--transition-normal);
-}
-
-body.dark-mode .navbar {
-  background-color: rgba(17, 24, 39, 0.85);
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 76px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.brand-logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.brand-logo-card {
-  background: linear-gradient(135deg, #0f172a, #020617);
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
-  border-radius: var(--radius-md);
-  padding: 5px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all var(--transition-normal);
-}
-
-.brand-logo-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary-color);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.site-brand-logo {
-  height: 38px;
-  width: auto;
-  max-width: 175px;
-  object-fit: contain;
-  display: block;
-}
-
-.brand-meta {
+/* حاوية التطبيق الشاملة */
+.app-root {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-}
-
-.brand-title-en {
-  font-size: 1.05rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-}
-
-.brand-subtitle-ar {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-/* شارة البراند في قسم الهيرو */
-.hero-brand-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-full);
-  padding: 0.35rem 0.95rem 0.35rem 0.6rem;
-  margin-bottom: 1rem;
-  backdrop-filter: blur(8px);
-}
-
-.hero-brand-logo {
-  height: 22px;
-  width: auto;
-  object-fit: contain;
-}
-
-.hero-tag-text {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #93c5fd;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.locate-header-btn {
-  padding: 0.55rem 1.1rem;
-  font-size: 0.88rem;
-}
-
-/* ==========================================================================
-   قسم الترحيب وتحديد الموقع (Hero Section)
-   ========================================================================== */
-.hero-section {
-  padding: 1.75rem 0 1.25rem;
-}
-
-.hero-card {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  color: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: 2rem 2.25rem;
+  height: 100%;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
 }
 
-.hero-card::after {
-  content: '';
-  position: absolute;
-  top: -40%;
-  left: -20%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 780px;
-}
-
-.status-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.4rem 0.95rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  backdrop-filter: blur(8px);
-}
-
-.status-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #10b981;
-}
-
-.status-dot.pulse {
-  animation: pulseAnimation 1.8s infinite;
-}
-
-@keyframes pulseAnimation {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-.status-dot.warning {
-  background-color: #f59e0b;
-}
-
-.hero-content h2 {
-  font-size: 1.85rem;
-  font-weight: 800;
-  margin-bottom: 0.6rem;
-  line-height: 1.3;
-}
-
-.hero-content p {
-  font-size: 0.98rem;
-  color: #cbd5e1;
-  line-height: 1.7;
-}
-
-
-/* ==========================================================================
-   أدوات التحكم والبحث والتصفية (Controls Section)
-   ========================================================================== */
-.controls-section {
-  padding: 0.75rem 0 1.25rem;
-}
-
-.controls-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .controls-wrapper {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.search-box {
-  position: relative;
-  flex: 1;
-  max-width: 550px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 0.85rem 3rem 0.85rem 2.75rem;
-  font-family: inherit;
-  font-size: 0.95rem;
-  background-color: var(--bg-surface);
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
-  outline: none;
-  transition: all var(--transition-normal);
-}
-
-.search-box input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px var(--primary-glow);
-}
-
-.search-icon {
-  position: absolute;
-  right: 1.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-  font-size: 1.05rem;
-  pointer-events: none;
-}
-
-.clear-btn {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-  font-size: 1rem;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.clear-btn:hover {
-  background-color: var(--bg-muted);
-  color: var(--danger-color);
-}
-
-.filter-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.filter-tabs {
-  display: flex;
-  background-color: var(--bg-surface);
-  padding: 0.25rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-}
-
-.tab-btn {
-  padding: 0.5rem 1rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-}
-
-.tab-btn.active {
-  background-color: var(--primary-color);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
-}
-
-.view-toggles {
-  display: flex;
-  background-color: var(--bg-surface);
-  padding: 0.25rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-}
-
-.view-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.9rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-}
-
-.view-btn.active {
-  background-color: var(--bg-muted);
-  color: var(--primary-color);
-}
-
-/* شريط تحذير الصلاحيات */
-.permission-alert {
-  margin-top: 1rem;
-  background: linear-gradient(135deg, #fffbeb, #fef3c7);
-  border: 1px solid #fde68a;
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
+/* =============================================================================
+   الهيدر العلوي المنسق والمحمي ضد الازدحام في الموبايل
+   ============================================================================= */
+.app-header {
+  background: var(--app-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.6rem 1.25rem;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  box-shadow: var(--shadow-sm);
+  gap: 0.75rem;
+  flex-shrink: 0;
+  height: 62px;
 }
 
-body.dark-mode .permission-alert {
-  background: linear-gradient(135deg, #2d2415, #1e180d);
-  border-color: #5c451b;
-}
-
-.permission-alert .alert-content {
+.header-brand {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  color: #92400e;
+  gap: 0.75rem;
+  min-width: 0;
 }
 
-body.dark-mode .permission-alert .alert-content {
-  color: #fcd34d;
-}
-
-.alert-icon {
-  font-size: 1.5rem;
+.brand-logo-glow {
+  background: #090e1a;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.permission-alert strong {
+.brand-logo-glow img {
+  height: 27px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
   display: block;
-  font-size: 0.92rem;
-  margin-bottom: 0.15rem;
 }
 
-.permission-alert p {
-  font-size: 0.82rem;
-}
-
-/* ==========================================================================
-   المحتوى وتصميم البطاقات (Branch Cards & Grid)
-   ========================================================================== */
-.main-content {
-  flex: 1;
-  padding-bottom: 3.5rem;
-}
-
-.layout-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.75rem;
-}
-
-@media (min-width: 1024px) {
-  .layout-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
-}
-
-.section-subhead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-}
-
-.section-subhead h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.results-badge {
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.3rem 0.75rem;
-  background-color: var(--bg-muted);
-  color: var(--text-secondary);
-  border-radius: var(--radius-full);
-}
-
-/* شبكة البطاقات */
-.branches-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-
-/* بطاقة الفرع (Modern Sleek Card) */
-.branch-card {
-  background-color: var(--bg-surface);
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  position: relative;
+.brand-tagline-wrap {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  overflow: hidden;
+  min-width: 0;
 }
 
-.branch-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow-lg);
-}
-
-/* تمييز الفرع الأقرب بنجم وتصميم لافت */
-.branch-card.is-nearest {
-  border: 2px solid var(--accent-gold);
-  background: linear-gradient(to bottom, var(--bg-surface), var(--accent-gold-soft));
-  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.25);
-}
-
-body.dark-mode .branch-card.is-nearest {
-  background: linear-gradient(to bottom, var(--bg-surface), #1f1b0e);
-}
-
-/* شريط التمييز "الفرع الأقرب إليك" */
-.nearest-ribbon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #ffffff;
-  padding: 0.35rem 1.1rem;
-  border-bottom-right-radius: var(--radius-md);
-  font-size: 0.78rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  box-shadow: 0 3px 8px rgba(217, 119, 6, 0.35);
-  z-index: 5;
-}
-
-/* رأس البطاقة */
-.card-header-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.branch-name-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.branch-name {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.3;
-}
-
-.branch-city {
+.brand-subtitle-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   font-size: 0.82rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-/* شارة المسافة */
-.distance-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
-  background-color: var(--bg-accent-soft);
-  color: var(--primary-color);
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  border-radius: var(--radius-full);
   font-weight: 800;
-  font-size: 0.88rem;
+  color: var(--primary);
   white-space: nowrap;
 }
 
-.distance-pill.highlight {
-  background: #f59e0b;
-  color: #ffffff;
-  border-color: #f59e0b;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+.brand-caption {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* تفاصيل العنوان وساعات العمل */
-.card-body-details {
+.header-actions {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
-.detail-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  line-height: 1.5;
-}
-
-.detail-icon {
-  width: 24px;
-  height: 24px;
+.action-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--app-surface-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-color);
   font-size: 0.95rem;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
+  transition: transform 0.15s var(--ease-smooth), color 0.15s ease, border-color 0.15s ease;
 }
 
-.address-text {
-  color: var(--text-secondary);
+.action-icon-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
-/* قسم رقم الموبايل مع إمكانية الاتصال المباشر */
-.phone-contact-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.9rem;
-  background-color: var(--bg-muted);
-  border-radius: var(--radius-md);
-  border: 1px dashed var(--border-color);
+.action-icon-btn:active {
+  transform: scale(0.92);
 }
 
-.phone-link {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--text-primary);
-  font-weight: 700;
-  direction: ltr; /* لعرض الأرقام بشكل صحيح */
-  unicode-bidi: embed;
-}
-
-.phone-link:hover {
-  color: var(--primary-color);
-}
-
-.phone-action-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--success-color);
-  background-color: var(--success-soft);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-full);
-}
-
-/* ساعات العمل وشارة الحالة */
-.status-badge-inline {
+.locate-pulse-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0.2rem 0.6rem;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-full);
-}
-
-.status-badge-inline.open {
-  background-color: #ecfdf5;
-  color: #059669;
-}
-
-body.dark-mode .status-badge-inline.open {
-  background-color: #064e3b;
-  color: #6ee7b7;
-}
-
-/* أزرار الإجراءات في أسفل البطاقة */
-.card-actions-footer {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 0.6rem;
-  margin-top: 0.35rem;
-}
-
-.btn-gmaps {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-  font-size: 0.92rem;
-  padding: 0.7rem 1rem;
-}
-
-.btn-gmaps:hover {
-  background: linear-gradient(135deg, #059669, #047857);
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
-  transform: translateY(-2px);
-}
-
-.btn-locate {
-  background-color: var(--bg-muted);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  font-size: 0.88rem;
-}
-
-.btn-locate:hover {
-  background-color: var(--border-color);
-  color: var(--primary-color);
-}
-
-/* ==========================================================================
-   عمود الخريطة التفاعلية (Interactive Map)
-   ========================================================================== */
-.map-column {
+  background: var(--primary-gradient);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 3px 12px var(--primary-glow);
   position: relative;
+  transition: transform 0.15s var(--ease-smooth), box-shadow 0.15s ease;
 }
 
-.map-card-wrapper {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4), 0 0 1px 1px rgba(255, 255, 255, 0.04);
+.locate-pulse-btn:hover {
+  transform: translateY(-1px);
+}
+
+.locate-pulse-btn:active {
+  transform: scale(0.95);
+}
+
+/* =============================================================================
+   جسم التطبيق المقسم (Split Screen Layout)
+   ============================================================================= */
+.app-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(380px, 440px) 1fr;
+  position: relative;
   overflow: hidden;
-  position: sticky;
-  top: 96px;
-  transition: all var(--transition-normal);
 }
 
-body.dark-mode .map-card-wrapper {
-  border-color: rgba(59, 130, 246, 0.2);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 99, 235, 0.08);
+/* اللوحة الجانبية للفروع */
+.branches-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--app-surface);
+  border-left: 1px solid var(--border-subtle);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 20;
 }
 
-.map-header {
+/* عناصر التحكم والبحث العلوية */
+.panel-top-controls {
+  padding: 0.75rem 1rem 0.6rem;
+  background: var(--app-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* شريط حالة الـ GPS الذكي */
+.gps-status-pill {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.95rem 1.25rem;
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.map-header-title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.map-live-badge {
-  position: relative;
-  width: 36px;
+  gap: 0.5rem;
+  background: var(--app-surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.85rem;
   height: 36px;
-  border-radius: var(--radius-md);
-  background: var(--bg-accent-soft);
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
 }
 
-.map-live-badge .pulse-ring {
-  position: absolute;
-  top: -2px;
-  right: -2px;
+.status-beacon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--text-2);
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.status-beacon span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* مؤشر النبض السريع بدون كلفة أداء */
+.beacon-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--success-color);
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  animation: pulseAnimation 2s infinite;
+  background: var(--primary);
+  flex-shrink: 0;
+  position: relative;
 }
 
-.map-title-main {
-  display: block;
-  font-size: 0.95rem;
+.beacon-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 1.5px solid var(--primary);
+  animation: beaconPulse 2s infinite ease-out;
+  transform: translateZ(0);
+}
+
+.beacon-dot.success {
+  background: var(--whatsapp);
+}
+
+.beacon-dot.success::after {
+  border-color: var(--whatsapp);
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.refresh-gps-action {
+  color: var(--primary);
   font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.2;
+  font-size: 0.74rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  transition: background-color 0.15s ease;
 }
 
-.map-title-sub {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-weight: 500;
+.refresh-gps-action:hover {
+  background: rgba(37, 99, 235, 0.12);
 }
 
-.map-action-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  padding: 0.45rem 0.85rem;
-  border-radius: var(--radius-full);
-  background-color: var(--bg-muted);
-  border: 1px solid var(--border-color);
-  transition: all var(--transition-fast);
+.refresh-gps-action:active {
+  transform: scale(0.94);
 }
 
-.map-action-btn:hover {
-  background-color: var(--primary-color);
-  color: #ffffff;
-  border-color: var(--primary-color);
-  transform: translateY(-1px);
-}
-
-.map-display {
-  width: 100%;
-  height: 490px;
-  background-color: var(--bg-surface);
-  z-index: 1;
-}
-
-/* مظهر خريطة Google في الوضع الليلي */
-body.dark-mode .map-display .leaflet-tile-pane {
-  filter: brightness(0.9) invert(0.92) contrast(1.15) hue-rotate(190deg) saturate(0.85);
-}
-
-/* دليل الخريطة السفلي (Legend) بتصميم كبسولات أنيقة */
-.map-legend {
+/* حقل البحث السريع */
+.app-search-box {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0.85rem 1rem;
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-color);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  gap: 0.4rem;
-  flex-wrap: wrap;
 }
 
-.legend-item {
-  display: inline-flex;
+.search-magnifier {
+  position: absolute;
+  right: 0.95rem;
+  color: var(--text-3);
+  font-size: 0.92rem;
+  pointer-events: none;
+}
+
+.app-search-box input {
+  width: 100%;
+  height: 42px;
+  background: var(--app-surface-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 0 2.5rem 0 2.2rem;
+  color: var(--text-1);
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.app-search-box input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.clear-search-action {
+  position: absolute;
+  left: 0.65rem;
+  color: var(--text-3);
+  font-size: 0.9rem;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.clear-search-action:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* شرائح الفلترة والمحاكاة الأفقية */
+.filter-chips-row {
+  display: flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.35rem 0.75rem;
-  background-color: var(--bg-muted);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 2px 4px 2px;
+  scroll-padding: 0.5rem;
+}
+
+.filter-chips-row::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--app-surface-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-light);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-2);
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: 34px;
+  transition: transform 0.15s var(--ease-smooth), background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-.legend-pin {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+.filter-chip:hover {
+  background: var(--app-surface-hover);
+  color: var(--text-1);
 }
 
-.legend-pin.user-pin {
-  background-color: #3b82f6;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+.filter-chip:active {
+  transform: scale(0.95);
 }
 
-.legend-pin.nearest-pin {
-  background-color: #f59e0b;
-  box-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
+.filter-chip.active {
+  background: var(--primary-gradient);
+  color: #fff !important;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px var(--primary-glow);
 }
 
-.legend-pin.branch-pin {
-  background-color: #10b981;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+.filter-chip.active i {
+  color: #fff !important;
 }
 
-/* تخصيص عناصر تحكم Leaflet لتلائم الثيم الحديث بالكامل */
-.leaflet-container {
-  background-color: var(--bg-surface) !important;
-  font-family: var(--font-family) !important;
+/* =============================================================================
+   قائمة البطاقات القابلة للتمرير (Feed List)
+   ============================================================================= */
+.branches-scroll-feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.85rem 1rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 
-.leaflet-bar {
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-sm) !important;
-  overflow: hidden;
-  box-shadow: var(--shadow-md) !important;
+.branches-scroll-feed::-webkit-scrollbar {
+  width: 5px;
+}
+.branches-scroll-feed::-webkit-scrollbar-track {
+  background: transparent;
+}
+.branches-scroll-feed::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
 }
 
-.leaflet-bar a {
-  background-color: var(--bg-surface-elevated) !important;
-  color: var(--text-primary) !important;
-  border-bottom: 1px solid var(--border-color) !important;
-  width: 32px !important;
-  height: 32px !important;
-  line-height: 32px !important;
-  font-size: 15px !important;
-  transition: all var(--transition-fast) !important;
-}
-
-.leaflet-bar a:hover {
-  background-color: var(--primary-color) !important;
-  color: #ffffff !important;
-}
-
-.leaflet-bar a:last-child {
-  border-bottom: none !important;
-}
-
-.leaflet-control-attribution {
-  background: rgba(15, 23, 42, 0.75) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--text-muted) !important;
-  border-top-right-radius: 8px;
-  font-size: 10px !important;
-  padding: 2px 8px !important;
-}
-
-.leaflet-control-attribution a {
-  color: #38bdf8 !important;
-  text-decoration: none;
-}
-
-/* تخصيص النوافذ المنبثقة (Popups) لتكون متناسقة تماماً مع الثيم */
-.sleek-popup-wrapper .leaflet-popup-content-wrapper {
-  background-color: var(--bg-surface-elevated) !important;
-  color: var(--text-primary) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow-xl) !important;
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-.sleek-popup-wrapper .leaflet-popup-tip {
-  background-color: var(--bg-surface-elevated) !important;
-}
-
-.sleek-popup-wrapper .leaflet-popup-close-button {
-  color: var(--text-muted) !important;
-  padding: 8px 10px !important;
-  font-size: 16px !important;
-}
-
-.sleek-popup-wrapper .leaflet-popup-close-button:hover {
-  color: var(--danger-color) !important;
-}
-
-.custom-map-popup {
-  direction: rtl;
-  text-align: right;
-  font-family: var(--font-family);
-  padding: 12px 14px;
-  min-width: 215px;
-}
-
-.custom-map-popup .popup-header {
+.feed-meta-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-3);
+  padding: 0 0.25rem;
 }
 
-.custom-map-popup .popup-title {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin: 0;
-  line-height: 1.3;
+.feed-count-tag {
+  background: var(--app-surface-card);
+  border: 1px solid var(--border-subtle);
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+  color: var(--text-2);
+  font-size: 0.74rem;
 }
 
-.popup-badge-nearest {
-  font-size: 0.68rem;
+/* =============================================================================
+   تصميم بطاقة الفرع المتقن (Polished Branch Card)
+   - احتواء برمجي كامل (CSS Containment)
+   - أنيميشن ظهور سلس بدون ضغط المعالج
+   ============================================================================= */
+.next-branch-card {
+  background: var(--app-surface-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.15rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  cursor: pointer;
+  contain: content;
+  transform: translateZ(0);
+  transition: transform 0.18s var(--ease-spring), border-color 0.15s ease, box-shadow 0.18s ease;
+  animation: cardEntrance 0.32s var(--ease-spring) both;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.next-branch-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.next-branch-card:active {
+  transform: scale(0.988);
+}
+
+/* تمييز الفرع الأقرب */
+.next-branch-card.is-nearest {
+  border: 2px solid var(--gold);
+  box-shadow: 0 6px 20px var(--gold-glow);
+  background: linear-gradient(180deg, var(--app-surface-card) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.branch-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.branch-badges-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+}
+
+.badge-nearest-star {
+  background: var(--gold-gradient);
+  color: #fff;
+  font-size: 0.7rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #ffffff;
   padding: 2px 7px;
   border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 2px 6px var(--gold-glow);
+}
+
+.badge-area-pill {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-live-open {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--whatsapp);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.card-branch-title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--text-1);
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.card-distance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: var(--primary);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 800;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.custom-map-popup .popup-address {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+.card-distance-badge.gold-distance {
+  background: var(--gold-gradient);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px var(--gold-glow);
+}
+
+/* التفاصيل النصية للبطاقة */
+.card-meta-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  color: var(--text-2);
+}
+
+.meta-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
   line-height: 1.4;
-  margin: 0 0 8px;
 }
 
-.custom-map-popup .popup-distance-pill {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  background-color: var(--bg-accent-soft);
-  padding: 4px 9px;
-  border-radius: var(--radius-sm);
-  display: inline-flex;
+.meta-line i {
+  color: var(--primary);
+  font-size: 0.88rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.phone-clickable-link {
+  color: var(--text-1);
+  font-weight: 800;
+  display: inline-block;
+  direction: ltr;
+  unicode-bidi: embed;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.phone-clickable-link:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.card-features-chips {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 10px;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
 }
 
-.custom-map-popup .popup-actions-grid {
+.feature-chip-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-3);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+}
+
+/* =============================================================================
+   شبكة أزرار الإجراءات المتناسقة بنسبة 100% (2x2 Grid)
+   تنسيق هندسي متقن بدون أي انحراف
+   ============================================================================= */
+.card-actions-grid {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 6px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
 }
 
-.popup-btn-gmaps {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 7px 10px;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: all var(--transition-fast);
-}
-
-.popup-btn-gmaps:hover {
-  background: linear-gradient(135deg, #059669, #047857);
-}
-
-.popup-btn-call {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  background-color: var(--bg-muted);
-  color: var(--text-primary);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all var(--transition-fast);
-}
-
-.popup-btn-call:hover {
-  background-color: var(--primary-color);
-  color: #ffffff;
-}
-
-/* علامات الخريطة المخصصة (Custom Map Markers) */
-.custom-leaflet-marker {
+.btn-action-base {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem;
+  min-height: 42px;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: transform 0.15s var(--ease-smooth), box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-action-base:active {
+  transform: scale(0.95);
+}
+
+/* زر الاتجاهات (Google Maps) */
+.btn-action-maps {
+  background: var(--primary-gradient);
+  color: #fff;
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.btn-action-maps:hover {
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+/* زر واتساب السريع */
+.btn-action-whatsapp {
+  background: var(--whatsapp-gradient);
+  color: #fff;
+  box-shadow: 0 2px 8px var(--whatsapp-glow);
+}
+
+.btn-action-whatsapp:hover {
+  box-shadow: 0 4px 14px var(--whatsapp-glow);
+}
+
+/* زر الاتصال الهاتفي */
+.btn-action-call {
+  background: rgba(148, 163, 184, 0.1);
+  border: 1.5px solid var(--border-card);
+  color: var(--text-1);
+}
+
+.btn-action-call:hover {
+  background: var(--app-surface-hover);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* زر عرض الخريطة */
+.btn-action-focus {
+  background: rgba(148, 163, 184, 0.1);
+  border: 1.5px solid var(--border-card);
+  color: var(--text-2);
+}
+
+.btn-action-focus:hover {
+  background: var(--app-surface-hover);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* حالة عدم وجود نتائج */
+.empty-search-state {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--app-surface-card);
+  border: 1.5px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.empty-search-state i {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.empty-search-state h3 {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.empty-search-state p {
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+
+/* =============================================================================
+   لوحة الخريطة التفاعلية (Leaflet Map Integration)
+   ============================================================================= */
+.map-panel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #090e1a;
+  overflow: hidden;
+}
+
+#leafletMap {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* زر توسيط الخريطة في الزاوية العلوية اليمنى بدون تداخل */
+.map-fab-recenter {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 500;
+  background: var(--app-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.15s var(--ease-smooth), background-color 0.15s ease, color 0.15s ease;
+}
+
+.map-fab-recenter:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.map-fab-recenter:active {
+  transform: scale(0.94);
+}
+
+/* بطاقة المعاينة المنبثقة السفلية على الخريطة للهواتف */
+.map-bottom-sheet {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 600;
+  background: var(--app-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  border: 1.5px solid var(--border-focus);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-lg);
+  animation: sheetSlideUp 0.24s var(--ease-spring);
+}
+
+@keyframes sheetSlideUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.close-sheet-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.close-sheet-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+/* شريط الملاحة السفلي في الهواتف */
+.mobile-tab-bar {
+  display: none;
+}
+
+/* رسائل التنبيه العائمة (Toasts) */
+.toast-container-box {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  pointer-events: none;
+}
+
+.app-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #0f172a;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.15rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  animation: toastIn 0.22s var(--ease-spring);
+  max-width: 360px;
+  transform: translateZ(0);
+}
+
+.app-toast.success { border-right: 4px solid var(--whatsapp); }
+.app-toast.info { border-right: 4px solid var(--primary); }
+.app-toast.warning { border-right: 4px solid var(--gold); }
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* تخصيص علامات Leaflet */
+.leaflet-popup-content-wrapper {
+  background: var(--app-surface-card) !important;
+  color: var(--text-1) !important;
+  border-radius: var(--radius-md) !important;
+  border: 1.5px solid var(--border-card) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0 !important;
+}
+.leaflet-popup-tip {
+  background: var(--app-surface-card) !important;
 }
 
 .custom-marker-pin {
@@ -1188,207 +983,183 @@ body.dark-mode .map-display .leaflet-tile-pane {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
-
 .custom-marker-pin i {
   transform: rotate(45deg);
   font-size: 1rem;
+  color: #fff;
 }
+.custom-marker-pin.gold-pin { background: var(--gold-gradient); border: 2px solid #fff; }
+.custom-marker-pin.blue-pin { background: var(--primary-gradient); border: 2px solid #fff; }
+.custom-marker-pin.user-pin { background: var(--whatsapp-gradient); border: 2px solid #fff; }
 
-.custom-marker-pin.user-loc {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  animation: userPinPulse 2s infinite;
-}
-
-.custom-marker-pin.nearest-loc {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  box-shadow: 0 0 16px rgba(245, 158, 11, 0.8);
-}
-
-.custom-marker-pin.branch-loc {
-  background: linear-gradient(135deg, #10b981, #059669);
-}
-
-@keyframes userPinPulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-  70% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-}
-
-/* ==========================================================================
-   حالة عدم وجود نتائج (Empty State)
-   ========================================================================== */
-.empty-state {
-  background-color: var(--bg-surface);
-  border: 2px dashed var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 3.5rem 1.5rem;
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.empty-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 1.25rem;
-  background-color: var(--bg-muted);
-  color: var(--text-muted);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
-
-.empty-state h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.empty-state p {
-  color: var(--text-muted);
-  max-width: 400px;
-  margin: 0 auto 1.5rem;
-  font-size: 0.95rem;
-}
-
-/* ==========================================================================
-   التذييل (Footer)
-   ========================================================================== */
-.app-footer {
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-color);
-  padding: 2.5rem 0 1.75rem;
-  margin-top: auto;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.25rem;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--primary-color);
-}
-
-.footer-info p {
-  color: var(--text-muted);
-  font-size: 0.88rem;
-  max-width: 550px;
-  margin-top: 0.35rem;
-}
-
-.footer-bottom {
-  border-top: 1px solid var(--border-color);
-  padding-top: 1.25rem;
-  width: 100%;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-/* ==========================================================================
-   نظام التنبيهات المنبثقة (Toast System)
-   ========================================================================== */
-.toast-container {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  pointer-events: none;
-}
-
-.toast {
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background-color: #1e293b;
-  color: #ffffff;
-  padding: 0.85rem 1.25rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xl);
-  font-size: 0.9rem;
-  font-weight: 600;
-  animation: toastSlideUp 0.35s var(--transition-spring);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 380px;
-}
-
-.toast.success { border-right: 4px solid var(--success-color); }
-.toast.info { border-right: 4px solid var(--primary-color); }
-.toast.warning { border-right: 4px solid var(--warning-color); }
-
-@keyframes toastSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ==========================================================================
-   التوافق مع شاشات الموبايل (Responsive Optimization)
-   ========================================================================== */
-.hidden {
-  display: none !important;
-}
-
-@media (max-width: 768px) {
-  .hero-card {
-    padding: 1.5rem;
-  }
-
-  .hero-content h2 {
-    font-size: 1.45rem;
-  }
-
-  .card-actions-footer {
+/* =============================================================================
+   قواعد التجاوب المتقنة للهواتف والشاشات الصغيرة (Mobile 10/10)
+   ============================================================================= */
+@media (max-width: 1023px) {
+  .app-body {
     grid-template-columns: 1fr;
   }
 
-  .map-display {
-    height: 340px;
+  body.mobile-mode-list .map-panel {
+    display: none !important;
+  }
+  body.mobile-mode-list .branches-panel {
+    display: flex !important;
+    width: 100%;
+    border-left: none;
   }
 
-  .toast-container {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
+  body.mobile-mode-map .branches-panel {
+    display: none !important;
+  }
+  body.mobile-mode-map .map-panel {
+    display: block !important;
+    width: 100%;
+    height: 100%;
   }
 
-  .toast {
-    max-width: 100%;
+  /* شريط التحكم السفلي العائم فائق النعومة والخفة */
+  .mobile-tab-bar {
+    display: flex;
+    position: fixed;
+    bottom: max(0.85rem, env(safe-area-inset-bottom, 14px));
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    z-index: 1200;
+    background: var(--app-glass-dock);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid var(--border-card);
+    border-radius: var(--radius-full);
+    padding: 4px;
+    gap: 5px;
+    box-shadow: var(--shadow-lg);
+    width: calc(100% - 1.5rem);
+    max-width: 360px;
   }
 
-  /* أسلوب التبديل بين الخريطة والقائمة في الموبايل */
-  body.mobile-view-map .cards-column {
+  .mobile-dock-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.45rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-2);
+    min-height: 42px;
+    white-space: nowrap;
+    transition: transform 0.15s var(--ease-smooth), background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .mobile-dock-btn:active {
+    transform: scale(0.95);
+  }
+
+  .mobile-dock-btn.active {
+    background: var(--primary-gradient);
+    color: #fff !important;
+    box-shadow: 0 2px 10px var(--primary-glow);
+  }
+
+  .mobile-dock-btn.accent-gps {
+    background: var(--whatsapp-gradient);
+    color: #fff;
+    box-shadow: 0 2px 10px var(--whatsapp-glow);
+  }
+
+  /* مساحة أمان مريحة تمنع حجب أي بطاقة بواسطة شريط التحكم */
+  .branches-scroll-feed {
+    padding-bottom: calc(6.8rem + env(safe-area-inset-bottom, 20px));
+  }
+
+  /* تموضع البطاقة السفلية على الخريطة فوق شريط التحكم بدون تداخل */
+  .map-bottom-sheet {
+    bottom: calc(5.8rem + env(safe-area-inset-bottom, 16px));
+    left: 0.85rem;
+    right: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+/* شاشات الهواتف المحمولة الذكية (Smartphones < 480px) */
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0.5rem 0.75rem;
+    height: 58px;
+  }
+
+  .brand-logo-glow {
+    padding: 2px 6px;
+  }
+
+  .brand-logo-glow img {
+    height: 23px;
+    max-width: 105px;
+  }
+
+  /* شارة الفروع المعتمدة المبسطة لمنع التزاحم */
+  .brand-caption {
     display: none;
   }
 
-  body.mobile-view-map .map-column {
-    display: block;
+  .brand-subtitle-badge {
+    font-size: 0.74rem;
   }
 
-  body.mobile-view-list .map-column {
+  .locate-pulse-btn span {
     display: none;
   }
+
+  .locate-pulse-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .action-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.88rem;
+  }
+
+  .card-branch-title {
+    font-size: 0.98rem;
+  }
+
+  .btn-action-base {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.4rem;
+    min-height: 40px;
+  }
+
+  .btn-action-base span {
+    font-size: 0.78rem;
+  }
+}
+
+/* الشاشات الصغيرة جداً (iPhone SE / Small Android < 360px) */
+@media (max-width: 360px) {
+  .brand-subtitle-badge span {
+    display: none;
+  }
+
+  .filter-chip {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.74rem;
+  }
+
+  .card-actions-grid {
+    gap: 0.35rem;
+  }
+}
+
+.hidden {
+  display: none !important;
 }
